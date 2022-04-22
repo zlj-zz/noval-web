@@ -3,11 +3,12 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 
 import Search from "./views/Search.vue";
+import NovelList from "./views/NovelList.vue";
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" @click="logoClick" />
-  <search />
+  <img alt="Vue logo" src="./assets/logo.png" />
+  <router-view v-slot="{ Component }"></router-view>
 </template>
 
 <style>
@@ -19,11 +20,13 @@ import Search from "./views/Search.vue";
   color: #2c3e50;
   margin-top: 60px;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   margin-top: 110px;
   text-align: center;
