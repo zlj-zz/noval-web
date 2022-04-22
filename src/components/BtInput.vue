@@ -43,7 +43,6 @@ const emit = defineEmits<{
 }>();
 
 const handleChange = (event: Event): void => {
-  console.log("change", (event.target as TargetElement).value);
   emit("change", (event.target as TargetElement).value);
 };
 
