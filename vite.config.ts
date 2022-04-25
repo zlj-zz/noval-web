@@ -12,6 +12,7 @@ export default ({ mode }) => {
       alias: {
         "@": resolve(__dirname, "src"),
         "api": resolve(__dirname, "src/api"),
+        "utils": resolve(__dirname, "src/utils"),
         "assets": resolve(__dirname, "src/assets"),
         "components": resolve(__dirname, "src/components"),
         "views": resolve(__dirname, "src/views"),

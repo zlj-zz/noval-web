@@ -1,23 +1,21 @@
 <template>
-  <div class="input-box">
-    <input
-      ref="input"
-      :type="showPassword ? 'password' : 'text'"
-      :autocomplete="autocomplete"
-      :placeholder="placeholder"
-      :tabindex="tabindex"
-      @change="handleChange"
-    />
+  <mimicry-box :width="width" :height="height">
+    <input ref="input" :type="showPassword ? 'password' : 'text'" :autocomplete="autocomplete"
+      :placeholder="placeholder" :tabindex="tabindex" @change="handleChange" />
     <button class="input-bt" type="button" @click="btClick">
       {{ bt_msg }}
     </button>
-  </div>
+  </mimicry-box>
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits, shallowRef, computed } from "vue";
+import { defineProps, defineEmits, shallowRef, computed, ref } from "vue";
+import MimicryBox from './MimicryBox.vue'
 
 type TargetElement = HTMLInputElement | HTMLTextAreaElement;
+
+const width = ref<string>('65%')
+const height = ref<string>('3rem')
 
 const input = shallowRef<HTMLInputElement>();
 const _ref = computed(() => input.value);
@@ -52,25 +50,8 @@ const btClick = (): void => {
 };
 </script>
 
-<style scoped>
-.input-box {
-  width: 65%;
-  height: 3rem;
-
-  margin: auto;
-  color: cadetblue;
-  border-radius: 10px;
-  background: #d8d8d6;
-  box-shadow: 20px 20px 60px #b6b7b5, -20px -20px 60px #f9faf7;
-  position: relative;
-}
-.input-box * {
-  font-size: 1rem;
-  position: absolute;
-  top: 50%;
-  border-radius: 0.9rem;
-}
-.input-box input {
+<style>
+.mimicry-box input {
   width: 80%;
   height: 90%;
   padding: 0 0.7rem;
@@ -80,10 +61,13 @@ const btClick = (): void => {
   border-style: groove;
   background-color: #ebede8;
 
+  border-top-left-radius: 0.9rem;
+  border-bottom-left-radius: 0.9rem;
   border-top-right-radius: 0.1rem;
   border-bottom-right-radius: 0.1rem;
-  transform: translate(-60%, -50%);
+  /* transform: translate(-60%, -50%); */
 }
+
 .input-bt {
   width: 15%;
   height: 90%;
@@ -91,6 +75,8 @@ const btClick = (): void => {
 
   border-top-left-radius: 0.1rem;
   border-bottom-left-radius: 0.1rem;
-  transform: translate(210%, -50%);
+  border-top-right-radius: 0.9rem;
+  border-bottom-right-radius: 0.9rem;
+  /* transform: translate(210%, -50%); */
 }
 </style>
