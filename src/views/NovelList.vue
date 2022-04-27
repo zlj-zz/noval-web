@@ -3,6 +3,7 @@ import { ref } from "vue"
 import { useRouter, useRoute } from "vue-router"
 import MimicryList from 'components/MimicryList.vue'
 import { searchFictions } from "../api"
+import type { Fiction, FictionObj } from "../api"
 
 const router = useRouter()
 const route = useRoute()
@@ -12,15 +13,7 @@ const novelName = route.query.name as string
 console.log(novelName)
 
 const width = ref<string>('55%')
-
-interface FictionItem {
-  name: string
-  date: string
-  info: string
-  key: string
-}
-
-const fictionList = ref<FictionItem[]>([]);
+const fictionList = ref<Fiction[]>([]);
 
 // get fiction list
 if (novelName != undefined)
@@ -28,7 +21,7 @@ if (novelName != undefined)
 
     console.log(res)
 
-    const data = res.data
+    const data: FictionObj = res.data
     for (const key in data) {
       if (Object.prototype.hasOwnProperty.call(data, key)) {
         fictionList.value.push(data[key])

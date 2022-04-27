@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router';
 import MimicryBox from 'components/MimicryBox.vue';
 import ProgressBar from 'components/ProgressBar.vue';
 import { crawlFiction, getCrawlStatus, downloadFiction } from '../api';
+import { CrawlReturn, CrawlStatus } from '../api';
 
 const progress = ref<number>(0)
 const msg = ref<string>('')
@@ -18,7 +19,7 @@ if (!key)
   msg.value = 'Need a key of fiction.'
 else
   crawlFiction(key).then(res => {
-    const data = res.data
+    const data: CrawlReturn = res.data
     console.log(data)
     if (data) {
       console.log('download request success.')
@@ -29,7 +30,7 @@ else
       // get crawl status
       const timer = setInterval(() => {
         getCrawlStatus(key).then(res => {
-          const curr = res.data.current
+          const curr = (res.data as CrawlStatus).current
           console.log(curr)
           if (curr == -1) {
             window.clearInterval(timer)
