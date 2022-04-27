@@ -7,7 +7,7 @@ import NovelList from "./views/NovelList.vue";
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
+  <img alt="Noval logo" src="./assets/logo.png" class="noval-logo"/>
   <router-view v-slot="{ Component }"></router-view>
 </template>
 
@@ -31,5 +31,9 @@ body {
   margin-top: 110px;
   text-align: center;
   background: #d8d8d6;
+}
+
+.noval-logo {
+  width: 17rem;
 }
 </style>

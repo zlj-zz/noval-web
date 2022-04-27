@@ -1,10 +1,22 @@
+# Noval-Web
+
+This is simple web to download fiction. Create with **Vue 3 + TypeScript + Vite**. And use **[noval](https://github.com/zlj-zz/noval)** as API.
+
+
+![index screenshot](./screenshot.png)
+
+# Setup
+
+```bash
+git clone https://github.com/zlj-zz/noval-web
+cd noval-web
+npm install
+npm run dev
+```
+
 # Vue 3 + TypeScript + Vite
 
 This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
 
 ## Type Support For `.vue` Imports in TS
 
