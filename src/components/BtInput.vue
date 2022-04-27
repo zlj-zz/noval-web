@@ -29,10 +29,10 @@ const _ref = computed(() => input.value);
 
 const props = defineProps({
   autocomplete: { type: String, default: "off" },
-  placeholder: { type: String, default: "Please input" },
+  placeholder: { type: String, default: "" },
   tabindex: { type: [String, Number] },
   showPassword: { type: Boolean, default: false },
-  bt_msg: { type: String, default: "Search" },
+  bt_msg: { type: String, default: "Bottom" },
 });
 
 // emits
@@ -51,6 +51,11 @@ const btClick = (): void => {
 </script>
 
 <style>
+.mimicry-box * {
+  top: 5%;
+  position: inherit;
+}
+
 .mimicry-box input {
   width: 80%;
   height: 90%;
