@@ -6,6 +6,7 @@ import ProgressBar from 'components/ProgressBar.vue';
 import { crawlFiction, getCrawlStatus, downloadFiction } from '../api';
 import { CrawlReturn, CrawlStatus } from '../api';
 
+const loading = ref<boolean>(false)
 const progress = ref<number>(0)
 const msg = ref<string>('')
 const total = ref<number>(0)
@@ -17,11 +18,14 @@ console.log(key)
 
 if (!key)
   msg.value = 'Need a key of fiction.'
-else
+else {
+  loading.value = true
+
   crawlFiction(key).then(res => {
     const data: CrawlReturn = res.data
     console.log(data)
     if (data) {
+      loading.value = false
       console.log('download request success.')
 
       total.value = data.total
@@ -47,6 +51,7 @@ else
       }, 200)
     }
   })
+}
 
 const onClick = () => {
   downloadFiction(key)
@@ -54,16 +59,18 @@ const onClick = () => {
 </script>
 
 <template>
-  <div v-if="isFetch">
-    <p>The fiction can be downloaded. Please click the button below.</p>
-    <br />
-    <input class="dl" type="button" value="Download" @click="onClick">
-  </div>
-  <div v-else>
-    <mimicry-box width="70%" height="2rem">
-      <progress-bar class="bar-custom" width="95%" radius="0.5rem" :progress="progress"></progress-bar>
-    </mimicry-box>
-    {{ msg }}
+  <div v-loading="loading">
+    <div v-if="isFetch">
+      <p>The fiction can be downloaded. Please click the button below.</p>
+      <br />
+      <input class="dl" type="button" value="Download" @click="onClick">
+    </div>
+    <div v-else>
+      <mimicry-box width="70%" height="2rem">
+        <progress-bar class="bar-custom" width="95%" radius="0.5rem" :progress="progress"></progress-bar>
+      </mimicry-box>
+      {{ msg }}
+    </div>
   </div>
 </template>
 

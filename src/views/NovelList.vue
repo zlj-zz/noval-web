@@ -12,6 +12,7 @@ const novelName = route.query.name as string
 
 console.log(novelName)
 
+const loading = ref<boolean>(true)
 const width = ref<string>('55%')
 const fictionList = ref<Fiction[]>([]);
 
@@ -20,6 +21,7 @@ if (novelName != undefined)
   searchFictions(novelName as string).then((res) => {
 
     console.log(res)
+    loading.value = false
 
     const data: FictionObj = res.data
     for (const key in data) {
@@ -36,7 +38,7 @@ const onClick = (key: string) => {
 </script>
 
 <template>
-  <mimicry-list class="fiction-list" :width="width">
+  <mimicry-list class="fiction-list" :width="width" v-loading="loading">
     <li v-for="(item, idx) in fictionList" :key="idx" @click="onClick(item.key)">
       <span :title="item.name">{{ item.name }}</span>
       <span :title="item.info">{{ item.info }}</span>

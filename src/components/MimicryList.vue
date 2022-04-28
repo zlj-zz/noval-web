@@ -38,5 +38,6 @@ const props = defineProps({
 
 .mimicry-ul li:hover {
   background: #d0d0ce;
+  cursor: pointer;
 }
 </style>
