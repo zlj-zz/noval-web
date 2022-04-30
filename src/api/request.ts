@@ -2,7 +2,7 @@ import axios from "axios";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 // custom env parameter must start with 'VITE_'
-const baseUrl: string = import.meta.env.VITE_REQUEST_BASE_URL
+export const baseUrl: string = import.meta.env.VITE_REQUEST_BASE_URL
 
 const axiosInstance: AxiosInstance = axios.create(
   {

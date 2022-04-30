@@ -38,7 +38,7 @@ const onClick = (key: string) => {
 </script>
 
 <template>
-  <mimicry-list class="fiction-list" :width="width" v-loading="loading">
+  <mimicry-list class="fiction-list" :width="width" v-loading="loading" element-loading-background="none">
     <li v-for="(item, idx) in fictionList" :key="idx" @click="onClick(item.key)">
       <span :title="item.name">{{ item.name }}</span>
       <span :title="item.info">{{ item.info }}</span>

@@ -10,4 +10,9 @@ export const crawlFiction = (key: string) => axiosInstance.get(`/crawl?key=${key
 export const getCrawlStatus = (key: string) => axiosInstance.get(`crawl_status?key=${key}`)
 
 // Download fiction to local.
-export const downloadFiction = (key: string) => axiosInstance.get(`/download?key=${key}`)
+// export const downloadFiction = (key: string) => axiosInstance.get(`/download?key=${key}`)
+export const downloadFiction = (key: string) => {
+  const baseUrl = axiosInstance.defaults.baseURL
+  const downloadUrl = `${baseUrl}/download?key=${key}`
+  window.open(downloadUrl)
+}

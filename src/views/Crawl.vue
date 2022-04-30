@@ -26,10 +26,10 @@ else {
     console.log(data)
     if (data) {
       loading.value = false
-      console.log('download request success.')
+      console.log('crawl request success.')
 
       total.value = data.total
-      msg.value = 'Downloading ...'
+      msg.value = 'Crawling ...'
 
       // get crawl status
       const timer = setInterval(() => {
@@ -44,11 +44,11 @@ else {
           } else {
             progress.value = 100
             isFetch.value = true
-            msg.value = 'Downloaded'
+            msg.value = 'Crawled'
             window.clearInterval(timer)
           }
         })
-      }, 500)
+      }, 400)
     }
   })
 }
@@ -59,7 +59,7 @@ const onClick = () => {
 </script>
 
 <template>
-  <div v-loading="loading">
+  <div v-loading="loading" element-loading-background="none">
     <div v-if="isFetch">
       <p>The fiction can be downloaded. Please click the button below.</p>
       <br />

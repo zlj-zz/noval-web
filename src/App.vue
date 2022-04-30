@@ -2,8 +2,6 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 
-import Search from "./views/Search.vue";
-import NovelList from "./views/NovelList.vue";
 </script>
 
 <template>
@@ -40,18 +38,21 @@ body {
 }
 
 .header {
+  position: relative;
   /* background-color: rgb(43, 42, 42); */
   padding-top: 30px;
   padding-bottom: 30px;
 }
 
 .content {
+  position: relative;
   margin-top: 40px;
 }
 
 .footer {
-  position: absolute;
-  bottom: 1.5rem;
+  position: relative;
+  top: 100px;
+  padding-bottom: 1.5rem;
   width: 100%;
   text-align: center;
 }
