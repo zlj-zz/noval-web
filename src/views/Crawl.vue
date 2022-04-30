@@ -48,7 +48,7 @@ else {
             window.clearInterval(timer)
           }
         })
-      }, 200)
+      }, 500)
     }
   })
 }

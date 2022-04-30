@@ -1,5 +1,5 @@
 <template>
-  <bt-input @change="changeFn" autocomplete="on" placeholder="Please Input" bt_msg="Search" />
+  <bt-input @change="changeFn" autocomplete="on" placeholder="Fiction name you want" bt_msg="Search" />
 </template>
 
 <script setup lang='ts'>

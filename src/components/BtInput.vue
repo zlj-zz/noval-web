@@ -51,7 +51,8 @@ const btClick = (): void => {
 </script>
 
 <style>
-.mimicry-box * {
+.mimicry-box input,
+button {
   top: 5%;
   position: inherit;
 }
