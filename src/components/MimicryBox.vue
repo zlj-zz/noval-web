@@ -18,13 +18,5 @@ const props = defineProps({
 .mimicry-box {
   width: v-bind(width);
   height: v-bind(height);
-
-  position: relative;
-  text-align: center;
-  margin: 0 auto;
-  color: cadetblue;
-  border-radius: 10px;
-  background: #d8d8d6;
-  box-shadow: 20px 20px 60px #b6b7b5, -20px -20px 60px #f9faf7;
 }
 </style>

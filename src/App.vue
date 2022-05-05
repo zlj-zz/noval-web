@@ -13,7 +13,7 @@
     <router-view v-slot="{ Component }"></router-view>
   </div>
   <div class="footer">
-    https://github.comt/zlj-zz/noval-web
+    <a href="https://github.com/zlj-zz/noval-web" target="_blank">https://github.com/zlj-zz/noval-web</a>
   </div>
 </template>
 
@@ -24,45 +24,5 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  text-align: center;
-  background: #d8d8d6;
-}
-
-.header {
-  position: relative;
-  /* background-color: rgb(43, 42, 42); */
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-.content {
-  position: relative;
-  margin-top: 40px;
-}
-
-.footer {
-  position: relative;
-  top: 100px;
-  padding-bottom: 1.5rem;
-  width: 100%;
-  text-align: center;
-}
-
-.noval-logo {
-  width: 10rem;
-}
-
-.title-name {
-  font-size: 10rem;
-  font-weight: bold;
 }
 </style>
