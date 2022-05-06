@@ -19,9 +19,19 @@ const fictionList = ref<Fiction[]>([]);
 // get fiction list
 if (novelName != undefined)
   searchFictions(novelName as string).then((res) => {
-
     console.log(res)
     loading.value = false
+
+    if (res === undefined) {
+
+      fictionList.value.push({
+        name: '',
+        info: 'Not Found Any Result.',
+        date: ' ',
+        key: ''
+      })
+      return
+    }
 
     const data: FictionObj = res.data
     for (const key in data) {
@@ -33,7 +43,9 @@ if (novelName != undefined)
   })
 
 const onClick = (key: string) => {
-  router.push({ path: '/Crawl', query: { key: key } })
+  if (key) {
+    router.push({ path: '/Crawl', query: { key: key } })
+  }
 }
 </script>
 

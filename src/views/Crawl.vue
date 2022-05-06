@@ -38,10 +38,11 @@ else {
           console.log(curr)
           if (curr == -1) {
             window.clearInterval(timer)
-          } else if (curr != -200) {
+            msg.value = 'Some error happened!'
+          } else if (curr > 0) {
             progress.value = curr / total.value * 100
             // console.log(progress.value)
-          } else {
+          } else if (curr == -200 || curr == -2) {
             progress.value = 100
             isFetch.value = true
             msg.value = 'Crawled'
